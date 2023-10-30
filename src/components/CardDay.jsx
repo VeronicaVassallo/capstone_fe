@@ -10,10 +10,10 @@ function CardDay(prop) {
 			xs="12"
 			style={{ width: "15rem" }}
 		>
-			<Card.Body key={prop.id} className="text-center">
+			<Card.Body className="text-center">
 				<Card.Title>Turni del Museo</Card.Title>
 				<Card.Text>{prop.singleDay}</Card.Text>
-				<Button href="#">
+				<Button>
 					<Link
 						className="text-decoration-none text-light"
 						to={"/backoffice/workshift"}

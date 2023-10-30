@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allDays, getDaysFromApi } from "../reducers/dayReducers";
 import CardDay from "../components/CardDay";
 import { Row, Container } from "react-bootstrap";
 import ModalAddDay from "../components/ModalAddDay";
 const Backoffice = () => {
-	const [dataDays, setDataDays] = useState([]);
-	const completeDays = useSelector(allDays); //allDays.days[array].propietadeloggetto
+	let completeDays = useSelector(allDays);
+	//const [dataDays, setDataDays] = useState(completeDays);
 	const dispatch = useDispatch();
-
-	console.log("giorni:", completeDays);
 
 	useEffect(() => {
 		dispatch(getDaysFromApi());
-		setDataDays(completeDays.days);
-	}, [dispatch, completeDays.days]);
+	}, []);
+
 	return (
 		<div>
 			<div className="d-flex">
@@ -25,9 +23,10 @@ const Backoffice = () => {
 			<hr />
 			<Container>
 				<Row>
-					{dataDays &&
-						dataDays?.map((day) => {
-							return <CardDay id={day._id} singleDay={day.singleDay} />;
+					{completeDays &&
+						completeDays.days &&
+						completeDays.days?.map((day) => {
+							return <CardDay key={day._id} singleDay={day.singleDay} />;
 						})}
 				</Row>
 			</Container>
