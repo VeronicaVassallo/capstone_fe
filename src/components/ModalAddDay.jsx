@@ -11,11 +11,8 @@ function ModalAddDay() {
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 	const [formData, setFormData] = useState("");
-	const [roomsData, setroomsData] = useState([]);
-	const [idDay, setIdDay] = useState("");
 
-	const submitPostData = async () => {
-		debugger;
+	const postDay = async () => {
 		if (formData) {
 			try {
 				const response = await fetch(
@@ -28,65 +25,12 @@ function ModalAddDay() {
 						body: JSON.stringify(formData),
 					}
 				);
-				//await getIdDay();
-				await sendAllRoomsToWorkshift();
-
-				//Prendo tutte le postazioni
-				//Foreach postazione -> chiamata post per creare turno senza keeper
-
-				alert("Data aggiunta con successo");
-				handleClose();
+				const data = await response.json();
+				alert("Data inviata");
 				window.location.reload();
 			} catch (error) {
 				console.log(error);
 			}
-		}
-	};
-
-	const getIdDay = async () => {
-		debugger;
-		const responceDay = await fetch(
-			`${process.env.REACT_APP_SERVER_BASE_URL}/day/${formData.singleDay}`
-		);
-		const dataDay = await responceDay.json();
-		setIdDay(dataDay.daySpecific[0]._id);
-	};
-
-	const sendAllRoomsToWorkshift = async () => {
-		debugger;
-		//get day
-		const responceDay = await fetch(
-			`${process.env.REACT_APP_SERVER_BASE_URL}/day/${formData.singleDay}`
-		);
-		const dataDay = await responceDay.json();
-		setIdDay(dataDay.daySpecific[0]._id);
-
-		//create workshift
-		const res = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/rooms`);
-		const data = await res.json();
-		setroomsData(data.rooms);
-		debugger;
-
-		try {
-			data.rooms.forEach(async (singleRoom) => {
-				const postWorkshift = await fetch(
-					`${process.env.REACT_APP_SERVER_BASE_URL}/workshift/create`,
-					{
-						headers: {
-							"Content-Type": "application/json",
-						},
-						method: "POST",
-						body: JSON.stringify({
-							day: dataDay.daySpecific[0]._id,
-							room: singleRoom._id,
-							keeper: "",
-						}),
-					}
-				);
-				const res = await postWorkshift.json();
-			});
-		} catch (error) {
-			console.log(error);
 		}
 	};
 
@@ -125,7 +69,7 @@ function ModalAddDay() {
 					<Button variant="secondary" onClick={handleClose}>
 						Chiudi
 					</Button>
-					<Button onClick={submitPostData} variant="primary">
+					<Button onClick={postDay} variant="primary">
 						Aggiungi data
 					</Button>
 				</Modal.Footer>

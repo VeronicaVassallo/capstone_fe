@@ -10,7 +10,10 @@ function App() {
 			<Routes>
 				<Route exact path="/" element={<Home />} />
 				<Route path="/backoffice" element={<Backoffice />} />
-				<Route path="/backoffice/workshift" element={<WorkshiftPage />} />
+				<Route
+					path="/backoffice/workshift/:idDay"
+					element={<WorkshiftPage />}
+				/>
 
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>

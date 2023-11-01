@@ -26,7 +26,13 @@ const Backoffice = () => {
 					{completeDays &&
 						completeDays.days &&
 						completeDays.days?.map((day) => {
-							return <CardDay key={day._id} singleDay={day.singleDay} />;
+							return (
+								<CardDay
+									key={day._id}
+									singleDay={day.singleDay}
+									idDay={day._id}
+								/>
+							);
 						})}
 				</Row>
 			</Container>

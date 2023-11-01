@@ -16,7 +16,7 @@ function CardDay(prop) {
 				<Button>
 					<Link
 						className="text-decoration-none text-light"
-						to={"/backoffice/workshift"}
+						to={`/backoffice/workshift/${prop.idDay}`}
 					>
 						Dettagli
 					</Link>
