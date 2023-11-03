@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import ModalAddKepeer from "../components/ModalAddKepeer";
+import "../style.css";
+import { FaFlagUsa, FaFireExtinguisher, FaFirstAid } from "react-icons/fa";
 
 const WorkshiftPage = () => {
-	const { idDay } = useParams();
+	const { idDay } = useParams(); //id turno
 	const [dataWorkshifts, setDataWorkshifts] = useState([]);
 
 	const getWorkshift = async () => {
@@ -15,22 +17,20 @@ const WorkshiftPage = () => {
 		const data = await response.json();
 		setDataWorkshifts(data.workshift);
 	};
-	console.log("ciao:", dataWorkshifts);
 
 	useEffect(() => {
 		getWorkshift();
 	}, [idDay]);
 	return (
 		<div>
-			<h1>Workshift</h1>
-			<p>id giorno: {idDay}</p>
-			<p>data : {dataWorkshifts[0] && dataWorkshifts[0].day.singleDay} </p>
-			<hr />
+			<div className="bgKeyper p-4">
+				<h1>Data : {dataWorkshifts[0] && dataWorkshifts[0].day.singleDay}</h1>
+				<p> </p>
+			</div>
 
-			<Table striped bordered hover>
+			<Table striped bordered hover className="border-dark">
 				<thead>
 					<tr>
-						<th>#</th>
 						<th>Sala </th>
 						<th>requisiti </th>
 						<th>kepeer</th>
@@ -41,12 +41,28 @@ const WorkshiftPage = () => {
 						dataWorkshifts?.map((workshift) => {
 							return (
 								<tr key={workshift._id}>
-									<td></td>
 									<td>{workshift.room.nameRoom}</td>
-									<td>Otto</td>
-									<td>{workshift.kepeer}</td>
 									<td>
-										<ModalAddKepeer />
+										{workshift.room.english ? <FaFlagUsa /> : ""}{" "}
+										{workshift.room.firePrevention ? (
+											<FaFireExtinguisher />
+										) : (
+											""
+										)}{" "}
+										{workshift.room.firstAid ? <FaFirstAid /> : ""}
+									</td>
+									<td>
+										<p>
+											{workshift.keeper && workshift.keeper.nameKeeper}{" "}
+											{workshift.keeper && workshift.keeper.surnameKeeper}{" "}
+										</p>
+									</td>
+									<td>
+										<ModalAddKepeer
+											idWorkshift={workshift._id}
+											idRoom={workshift.room._id}
+											idDay={idDay}
+										/>
 									</td>
 								</tr>
 							);
