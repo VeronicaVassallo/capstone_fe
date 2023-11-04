@@ -1,7 +1,9 @@
 import React from "react";
 import NavbarComponent from "../components/NavbarComponent";
+import useSession from "../useSession";
 
 const Home = () => {
+	const session = useSession();
 	return (
 		<>
 			<NavbarComponent />

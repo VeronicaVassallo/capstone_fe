@@ -18,3 +18,16 @@
 .bgKeyper {
 	background-color: rgb(143, 178, 143);
 }
+.myBorder {
+	border: 4px solid rgb(4, 57, 16);
+}
+.bgKeyperLight {
+	opacity: 0.9;
+}
+.myImg {
+	background-image: url("https://www.yesmilano.it/sites/default/files/luogo/copertina/64/60/Castello_sforzesco_copertina_Depositphotos_157455922_xl-2015.jpg");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
