@@ -23,6 +23,8 @@
 }
 .bgKeyperLight {
 	opacity: 0.9;
+	width: 50%;
+	height: 50%;
 }
 .myImg {
 	background-image: url("https://www.yesmilano.it/sites/default/files/luogo/copertina/64/60/Castello_sforzesco_copertina_Depositphotos_157455922_xl-2015.jpg");
@@ -30,4 +32,13 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	padding: 10%;
+}
+
+@media screen and (max-width: 600px) {
+	.bgKeyperLight {
+		width: 100%;
+		height: 100%;
+		padding-left: 10rem;
+	}
 }
