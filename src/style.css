@@ -1,3 +1,9 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
 .selectorImg {
 	width: auto;
 	height: 50px;
@@ -21,20 +27,49 @@
 .myBorder {
 	border: 4px solid rgb(4, 57, 16);
 }
+.mysize {
+	height: 50rem;
+}
+
+.myTitle h1 {
+	text-wrap: wrap;
+}
 .bgKeyperLight {
 	opacity: 0.9;
-	width: 50%;
-	height: 50%;
+	width: 80%;
+	height: 100%;
 }
 .myImg {
 	background-image: url("https://www.yesmilano.it/sites/default/files/luogo/copertina/64/60/Castello_sforzesco_copertina_Depositphotos_157455922_xl-2015.jpg");
-	height: 100%;
+	height: 100vh;
+	width: 100vw;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 10%;
 }
-
+.myAvatar {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.myImgAvatar {
+	width: 100%;
+}
+.linkhover:hover {
+	background-color: rgb(50, 91, 50);
+	border-radius: 5px;
+}
+.delete {
+	width: 30px;
+	height: 30px;
+}
+.delete:hover {
+	background-color: darkgrey;
+	border-radius: 5px;
+	cursor: pointer;
+}
 @media screen and (max-width: 600px) {
 	.bgKeyperLight {
 		width: 100%;

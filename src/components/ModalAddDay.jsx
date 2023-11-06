@@ -36,7 +36,7 @@ function ModalAddDay() {
 
 	return (
 		<>
-			<Button variant="primary" className="mx-5 my-2" onClick={handleShow}>
+			<Button variant="primary" className="my-2" onClick={handleShow}>
 				+
 			</Button>
 

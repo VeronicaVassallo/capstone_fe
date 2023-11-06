@@ -50,37 +50,43 @@ const LoginPage = () => {
 
 	return (
 		<div className="myImg">
-			<Container>
-				<h2 className="text-center text-light pb-5">Benvenuti su Keyper</h2>
-				<div className="d-flex bgKeyper p-5 myBorder rounded bgKeyperLight">
-					<div className="">
-						<Form onSubmit={onSubmitData}>
-							<Row>
-								<Form.Group as={Col} md="4">
-									<label>E-mail: </label>
-									<input
-										type="email"
-										placeholder="email"
-										name="email"
-										required
-										onChange={handleInpuntChange}
-									/>
+			<Container className="d-flex justify-content-center">
+				<Row>
+					<Col>
+						<div className="d-flex bgKeyper p-5 myBorder rounded bgKeyperLight ">
+							<div className="">
+								<h2 className="text-center text-light pb-5">
+									Benvenuti su Keyper
+								</h2>
+								<Form onSubmit={onSubmitData}>
+									<Row>
+										<Form.Group as={Col} md="4">
+											<label>E-mail: </label>
+											<input
+												type="email"
+												placeholder="email"
+												name="email"
+												required
+												onChange={handleInpuntChange}
+											/>
 
-									<label>Password :</label>
-									<input
-										type="password"
-										name="password"
-										required
-										onChange={handleInpuntChange}
-									/>
-								</Form.Group>
-							</Row>
-							<br />
-							<Button type="submit">Accedi</Button>
-							<Registration />
-						</Form>
-					</div>
-				</div>
+											<label>Password :</label>
+											<input
+												type="password"
+												name="password"
+												required
+												onChange={handleInpuntChange}
+											/>
+										</Form.Group>
+									</Row>
+									<br />
+									<Button type="submit">Accedi</Button>
+									<Registration />
+								</Form>
+							</div>
+						</div>
+					</Col>
+				</Row>
 			</Container>
 		</div>
 	);

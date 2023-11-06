@@ -6,6 +6,7 @@ import Modal from "react-bootstrap/Modal";
 const Registration = () => {
 	const [show, setShow] = useState(false);
 	const [formData, setFormData] = useState({});
+	const [fileAvatar, setFileAvatar] = useState(null);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => {
@@ -19,32 +20,71 @@ const Registration = () => {
 		setShow(true);
 	};
 
-	const postFormData = async () => {
-		debugger;
-
-		try {
-			const response = await fetch(
-				`${process.env.REACT_APP_SERVER_BASE_URL}/keeper/create`,
-				{
-					headers: {
-						"Content-Type": "application/json",
-					},
-					method: "POST",
-					body: JSON.stringify(formData),
-				}
-			);
-			alert("Registrazione inviata con successo!");
-			window.location.reload();
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
 	const convert = (stringValue) => {
 		if (stringValue === "true") {
 			return true;
 		} else {
 			return false;
+		}
+	};
+
+	const onChangeSetFile = (e) => {
+		setFileAvatar(e.target.files[0]);
+	};
+
+	const uploadFileAvatar = async (avatar) => {
+		const fileData = new FormData();
+		fileData.append("avatar", avatar);
+
+		try {
+			const response = await fetch(
+				`${process.env.REACT_APP_SERVER_BASE_URL}/keepers/cloudUpload`,
+				{
+					method: "POST",
+					body: fileData,
+				}
+			);
+			return await response.json();
+		} catch (error) {
+			console.log(error, "Error during  uploadFileAvatar");
+		}
+	};
+
+	const postFormData = async () => {
+		if (fileAvatar) {
+			try {
+				let uploadAvatar = null;
+				if (fileAvatar) {
+					uploadAvatar = await uploadFileAvatar(fileAvatar);
+				}
+				const finalBody = {
+					nameKeeper: formData.nameKeeper,
+					surnameKeeper: formData.surnameKeeper,
+					email: formData.email,
+					password: formData.password,
+					referent: formData.referent,
+					english: formData.english,
+					firePrevention: formData.firePrevention,
+					firstAid: formData.firstAid,
+					avatar: uploadAvatar.avatar,
+				};
+				const response = await fetch(
+					`${process.env.REACT_APP_SERVER_BASE_URL}/keeper/create`,
+					{
+						headers: {
+							"Content-Type": "application/json",
+						},
+						method: "POST",
+						body: JSON.stringify(finalBody),
+					}
+				);
+				alert("Registrazione inviata con successo!");
+				window.location.reload();
+			} catch (error) {
+				console.log(error);
+			}
+		} else {
+			console.error("Per favore seleziona almeno un file");
 		}
 	};
 
@@ -59,7 +99,7 @@ const Registration = () => {
 					<Modal.Title>Registati</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<Form>
+					<Form encType="multipart/form-data">
 						<Form.Group as={Col} md="4">
 							<label>Nome:</label>
 							<input
@@ -115,11 +155,11 @@ const Registration = () => {
 							<input
 								type="checkbox"
 								name="referent"
-								value={true}
 								onChange={(e) => {
+									debugger;
 									setFormData({
 										...formData,
-										referent: convert(e.target.value),
+										referent: e.target.checked,
 									});
 								}}
 								required
@@ -130,11 +170,10 @@ const Registration = () => {
 							<input
 								type="checkbox"
 								name="english"
-								value={true}
 								onChange={(e) =>
 									setFormData({
 										...formData,
-										english: convert(e.target.value),
+										english: e.target.checked,
 									})
 								}
 								required
@@ -144,11 +183,10 @@ const Registration = () => {
 							<input
 								type="checkbox"
 								name="firePrevention"
-								value={true}
 								onChange={(e) =>
 									setFormData({
 										...formData,
-										firePrevention: convert(e.target.value),
+										firePrevention: e.target.checked,
 									})
 								}
 								required
@@ -158,11 +196,10 @@ const Registration = () => {
 							<input
 								type="checkbox"
 								name="firstAid"
-								value={true}
 								onChange={(e) =>
 									setFormData({
 										...formData,
-										firstAid: convert(e.target.value),
+										firstAid: e.target.checked,
 									})
 								}
 								required
@@ -170,16 +207,7 @@ const Registration = () => {
 							<label> Primo soccorso</label>
 
 							<label>Avatar</label>
-							<input
-								type="text"
-								name="avatar"
-								onChange={(e) =>
-									setFormData({
-										...formData,
-										avatar: e.target.value,
-									})
-								}
-							/>
+							<input type="file" name="avatar" onChange={onChangeSetFile} />
 						</Form.Group>
 					</Form>
 				</Modal.Body>

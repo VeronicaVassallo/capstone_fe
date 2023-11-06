@@ -1,7 +1,23 @@
 import Card from "react-bootstrap/Card";
 import { Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import "../style.css";
 function CardDay(prop) {
+	const deleteDay = async () => {
+		debugger;
+		const response = await fetch(
+			`${process.env.REACT_APP_SERVER_BASE_URL}/day/delete/${prop.idDay}`,
+			{
+				headers: {
+					"Content-Type": "application/json",
+				},
+				method: "DELETE",
+			}
+		);
+		alert("Turno eliminato con successo");
+		window.location.reload();
+	};
 	return (
 		<Card
 			className="g-3 mx-auto"
@@ -11,7 +27,10 @@ function CardDay(prop) {
 			style={{ width: "15rem" }}
 		>
 			<Card.Body className="text-center">
-				<Card.Title>Turni del Museo</Card.Title>
+				<div onClick={deleteDay} className="delete">
+					<RiDeleteBin5Line />
+				</div>
+				<Card.Title>Turni del Museo </Card.Title>
 				<Card.Text>{prop.singleDay}</Card.Text>
 				<Button>
 					<Link
