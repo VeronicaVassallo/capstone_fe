@@ -25,7 +25,10 @@
 	background-color: rgb(143, 178, 143);
 }
 .myBorder {
-	border: 4px solid rgb(4, 57, 16);
+	border: 5px solid rgb(4, 57, 16);
+}
+.myBorder-home {
+	border: 15px solid rgb(143, 178, 143);
 }
 .mysize {
 	height: 50rem;
@@ -47,6 +50,9 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 10%;
+}
+.myWith {
+	width: 100%;
 }
 .myAvatar {
 	width: 80px;
@@ -70,10 +76,114 @@
 	border-radius: 5px;
 	cursor: pointer;
 }
+
+.myk {
+	background-color: orange;
+	width: 50px;
+	height: 50px;
+	padding-top: 8px;
+	border-radius: 50%;
+	text-align: center;
+}
+.myEyper {
+	background-color: orange;
+	width: 80px;
+	height: 25px;
+	position: relative;
+	left: -1em;
+	top: -0.3em;
+}
+.keyTooth {
+	background-color: orange;
+	width: 18px;
+	height: 30px;
+	position: relative;
+	left: -2.8em;
+	top: 0.2em;
+}
+
 @media screen and (max-width: 600px) {
 	.bgKeyperLight {
 		width: 100%;
 		height: 100%;
 		padding-left: 10rem;
+	}
+}
+
+/*Button*/
+.myButton {
+	position: relative;
+	overflow: hidden;
+	height: 3rem;
+	padding: 0 2rem;
+	border-radius: 1.5rem;
+	background: rgb(128, 89, 155);
+	background-size: 400%;
+	color: #fff;
+	border: none;
+}
+
+.myButton:hover::before {
+	transform: scaleX(1);
+}
+
+.myButton-content {
+	position: relative;
+	z-index: 1;
+}
+
+.myButton::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: scaleX(0);
+	transform-origin: 0 50%;
+	width: 100%;
+	height: inherit;
+	border-radius: inherit;
+	background: linear-gradient(
+		82.3deg,
+		rgba(150, 93, 233, 1) 10.8%,
+		rgba(99, 88, 238, 1) 94.3%
+	);
+	transition: all 0.475s;
+}
+
+.typewriter h1 {
+	color: #fff;
+	font-family: monospace;
+	overflow: hidden; /* Ensures the content is not revealed until the animation */
+	border-right: 0.15em solid orange; /* The typwriter cursor */
+	white-space: nowrap; /* Keeps the content on a single line */
+	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+	letter-spacing: 0.15em; /* Adjust as needed */
+	animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: orange;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.typewriter {
+		display: none;
 	}
 }

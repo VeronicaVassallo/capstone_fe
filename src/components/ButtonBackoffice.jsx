@@ -4,11 +4,13 @@ import Button from "react-bootstrap/Button";
 
 const ButtonBackoffice = () => {
 	return (
-		<Button variant="outline-danger">
-			<Link className="text-decoration-none" to={"/backoffice"}>
-				Backoffice
-			</Link>
-		</Button>
+		<button class="myButton mx-2">
+			<span class="myButton-content">
+				<Link className="text-decoration-none text-light" to={"/backoffice"}>
+					Backoffice
+				</Link>
+			</span>
+		</button>
 	);
 };
 export default ButtonBackoffice;

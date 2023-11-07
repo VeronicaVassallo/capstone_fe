@@ -15,7 +15,6 @@ const KeeperSelector = (prop) => {
 			}
 		);
 		const data = await responsePatch.json();
-		alert("Custode inserito con successo!");
 		window.location.reload();
 	};
 	return (

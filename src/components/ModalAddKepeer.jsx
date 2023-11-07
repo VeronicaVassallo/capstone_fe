@@ -24,7 +24,6 @@ const ModalAddKepeer = (prop) => {
 	};
 
 	const removeKeeper = async () => {
-		debugger;
 		const responseRemoveKeeper = await fetch(
 			`${process.env.REACT_APP_SERVER_BASE_URL}/workshift/${prop.idWorkshift}/keeper/remove`,
 			{

@@ -23,17 +23,20 @@ const Home = () => {
 		getInfoWorkshift();
 	}, [idkeeper]);
 	return (
-		<>
+		<div className="bgKeyper mysize">
 			<NavbarComponent referent={session.referent} />
-			<h1>Home</h1>
+			<hr className="" />
+			<h2>
+				Benvenuto {session.nameKeeper} {session.surnameKeeper} !
+			</h2>
 			<div className="myAvatar mx-4 myAvatarPointer">
 				<img className="myImgAvatar" src={session.avatar} alt="img_avatar" />
 			</div>
-			<h2>
-				Benvenuto : {session.nameKeeper} {session.surnameKeeper}
-			</h2>
-			<h4>I tuoi turni:</h4>
-			<Table striped bordered hover className="border-dark">
+			<br />
+			<br />
+
+			<h2>I tuoi turni:</h2>
+			<Table striped bordered hover className="myBorder-home">
 				<thead>
 					<tr>
 						<th>Giorno: </th>
@@ -56,7 +59,7 @@ const Home = () => {
 						})}
 				</tbody>
 			</Table>
-		</>
+		</div>
 	);
 };
 

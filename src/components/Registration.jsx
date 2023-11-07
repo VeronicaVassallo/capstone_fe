@@ -207,7 +207,12 @@ const Registration = () => {
 							<label> Primo soccorso</label>
 
 							<label>Avatar</label>
-							<input type="file" name="avatar" onChange={onChangeSetFile} />
+							<input
+								type="file"
+								name="avatar"
+								onChange={onChangeSetFile}
+								required
+							/>
 						</Form.Group>
 					</Form>
 				</Modal.Body>

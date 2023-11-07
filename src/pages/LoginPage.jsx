@@ -54,13 +54,19 @@ const LoginPage = () => {
 				<Row>
 					<Col>
 						<div className="d-flex bgKeyper p-5 myBorder rounded bgKeyperLight ">
-							<div className="">
-								<h2 className="text-center text-light pb-5">
-									Benvenuti su Keyper
-								</h2>
+							<div className="d-flex flex-column justify-content-center ">
+								<div className="d-flex align-items-center my-2 mx-4">
+									<div>
+										<h3 className="myk">K</h3>
+									</div>
+									<div className="myEyper">
+										<span>eyper</span>
+									</div>
+									<div className="keyTooth"></div>
+								</div>
 								<Form onSubmit={onSubmitData}>
 									<Row>
-										<Form.Group as={Col} md="4">
+										<Form.Group as={Col} md="6">
 											<label>E-mail: </label>
 											<input
 												type="email"
@@ -70,10 +76,11 @@ const LoginPage = () => {
 												onChange={handleInpuntChange}
 											/>
 
-											<label>Password :</label>
+											<label>Password:</label>
 											<input
 												type="password"
 												name="password"
+												placeholder="******"
 												required
 												onChange={handleInpuntChange}
 											/>
@@ -84,6 +91,11 @@ const LoginPage = () => {
 									<Registration />
 								</Form>
 							</div>
+						</div>
+					</Col>
+					<Col>
+						<div className="typewriter">
+							<h1>the key for every keepers</h1>
 						</div>
 					</Col>
 				</Row>
