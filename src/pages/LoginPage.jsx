@@ -97,6 +97,11 @@ const LoginPage = () => {
 						<div className="typewriter">
 							<h1>the key for every keepers</h1>
 						</div>
+						<h4 className=" p-2 mt-5 mybg">
+							Con l'app Keyper puoi gestire il tuo lavoro in maniera piu Smarth!
+							La gestione dei turni non è mai stata cosi semplice! Organizza i
+							tuoi turni e quelli della tua squadra.
+						</h4>
 					</Col>
 				</Row>
 			</Container>

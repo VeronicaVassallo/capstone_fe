@@ -53,7 +53,7 @@ const ModalAddKepeer = (prop) => {
 				</Modal.Header>
 				<Modal.Body className="bgKeyper">
 					Custodi con requisiti:
-					<div className="d-flex">
+					<div className="d-flex flex-wrap">
 						{keepersOk &&
 							keepersOk?.map((x) => {
 								return (

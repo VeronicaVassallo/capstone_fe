@@ -23,12 +23,10 @@ const Home = () => {
 		getInfoWorkshift();
 	}, [idkeeper]);
 	return (
-		<div className="bgKeyper mysize">
+		<div className="myBg-Keyper bgKeyper mysize">
 			<NavbarComponent referent={session.referent} />
-			<hr className="" />
-			<h2>
-				Benvenuto {session.nameKeeper} {session.surnameKeeper} !
-			</h2>
+			<hr />
+			<h2>Welcome {session.nameKeeper} !</h2>
 			<div className="myAvatar mx-4 myAvatarPointer">
 				<img className="myImgAvatar" src={session.avatar} alt="img_avatar" />
 			</div>

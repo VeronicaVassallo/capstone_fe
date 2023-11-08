@@ -5,6 +5,7 @@ import ModalAddKepeer from "../components/ModalAddKepeer";
 import "../style.css";
 import { FaFlagUsa, FaFireExtinguisher, FaFirstAid } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import GeneratorWorkshif from "../components/GeneratorWorkshift";
 
 const WorkshiftPage = () => {
 	const { idDay } = useParams(); //id turno
@@ -23,8 +24,8 @@ const WorkshiftPage = () => {
 		getWorkshift();
 	}, [idDay]);
 	return (
-		<div className="bgKeyper mysize">
-			<div className="d-flex align-items-center flex-wrap">
+		<div className="myBg-Keyper mysize bgKeyper">
+			<div className="d-flex align-items-center flex-wrap bgKeyper">
 				<div className="d-flex align-items-center my-2 mx-4">
 					<div>
 						<h3 className="myk">K</h3>
@@ -34,24 +35,28 @@ const WorkshiftPage = () => {
 					</div>
 					<div className="keyTooth"></div>
 				</div>
-				<h1>
-					Data turno: {dataWorkshifts[0] && dataWorkshifts[0].day.singleDay}
+				<h1 className="mx-3">
+					Data: {dataWorkshifts[0] && dataWorkshifts[0].day.singleDay}
 				</h1>
 
-				<div>
+				<div className=" d-flex align-items-center ">
 					<div>
-						<p>
-							<Link
-								className="text-decoration-none text-dark linkhover p-2 mx-5"
-								to={"/backoffice"}
-							>
-								Torna indietro
-							</Link>{" "}
-						</p>
+						<button className="myButton mx-2">
+							<span className="myButton-content">
+								<Link
+									className="text-decoration-none text-light"
+									to={"/backoffice"}
+								>
+									Torna indietro
+								</Link>
+							</span>
+						</button>
+					</div>
+					<div>
+						<GeneratorWorkshif />
 					</div>
 				</div>
 			</div>
-			<hr />
 			<Table striped bordered hover className="myBorder-home">
 				<thead>
 					<tr>

@@ -29,16 +29,15 @@ const NavbarComponent = (prop) => {
 						navbarScroll
 					>
 						<Nav.Link></Nav.Link>
-						{prop.referent ? <ButtonBackoffice /> : ""}
-						<button className="myButton">
+						<button className="myButton mt-2">
 							<span className="myButton-content">
 								<Link className="text-decoration-none text-light" to={"/"}>
 									Torna al login
 								</Link>
 							</span>
 						</button>
+						{prop.referent ? <ButtonBackoffice /> : ""}
 					</Nav>
-					<Form></Form>
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>

@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 const ButtonBackoffice = () => {
 	return (
-		<button class="myButton mx-2">
+		<button class="myButton m-2">
 			<span class="myButton-content">
 				<Link className="text-decoration-none text-light" to={"/backoffice"}>
 					Backoffice

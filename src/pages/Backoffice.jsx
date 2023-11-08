@@ -14,21 +14,21 @@ const Backoffice = () => {
 	}, []);
 
 	return (
-		<div className="bgKeyper mysize">
-			<div className="d-flex align-items-center">
+		<div className="myBg-Keyper mysize">
+			<div className="d-flex align-items-center bgKeyper pb-4 py-2">
 				<h1>Backoffice</h1>
 				<div className="px-4">
-					<Link
-						className="text-decoration-none text-dark linkhover p-2"
-						to={"/home"}
-					>
-						Home
-					</Link>
+					<button className="myButton mx-2">
+						<span className="myButton-content">
+							<Link className="text-decoration-none text-light" to={"/home"}>
+								Torna indietro
+							</Link>
+						</span>
+					</button>
 				</div>
 				<ModalAddDay />
 			</div>
 
-			<hr />
 			<Container>
 				<Row>
 					{completeDays &&
