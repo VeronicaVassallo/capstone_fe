@@ -40,12 +40,12 @@ const ModalAddKepeer = (prop) => {
 
 	return (
 		<>
-			<Button className="m-1" variant="primary" onClick={getKeepersWithSkills}>
-				Seleziona Custode
-			</Button>
-			<Button className="m-1" variant="danger" onClick={removeKeeper}>
+			<button className="buttonAdd bg-primary" onClick={getKeepersWithSkills}>
+				Aggiungi
+			</button>
+			<button className="buttonAdd bg-danger" onClick={removeKeeper}>
 				Rimuovi
-			</Button>
+			</button>
 
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header className="bgKeyper" closeButton>

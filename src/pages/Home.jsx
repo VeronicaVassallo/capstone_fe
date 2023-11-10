@@ -17,6 +17,11 @@ const Home = () => {
 			`${process.env.REACT_APP_SERVER_BASE_URL}/workshift/specific/${idkeeper}`
 		);
 		let data = await response.json();
+		data.workshifstSpecificKeeper.sort((a, b) => {
+			const dateA = new Date(a.day.dataName);
+			const dateB = new Date(b.day.dataName);
+			return dateA - dateB;
+		});
 		setInfoWorkshift(data.workshifstSpecificKeeper);
 	};
 	useEffect(() => {

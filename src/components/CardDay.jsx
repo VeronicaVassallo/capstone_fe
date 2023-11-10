@@ -5,7 +5,6 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import "../style.css";
 function CardDay(prop) {
 	const deleteDay = async () => {
-		debugger;
 		const response = await fetch(
 			`${process.env.REACT_APP_SERVER_BASE_URL}/day/delete/${prop.idDay}`,
 			{

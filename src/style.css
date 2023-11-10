@@ -28,8 +28,8 @@
 .myBorder {
 	border: 5px solid rgb(4, 57, 16);
 }
-.myBorder-home {
-	border: 5px solid rgb(143, 178, 143);
+.home {
+	background-color: rgb(209, 222, 209);
 }
 .mysize {
 	height: 50rem;
@@ -37,6 +37,12 @@
 
 .myTitle h1 {
 	text-wrap: wrap;
+}
+.buttonAdd {
+	padding: 5px;
+	margin: auto 5px auto 5px;
+	border-radius: 10%;
+	color: #fff;
 }
 .bgKeyperLight {
 	opacity: 0.9;
@@ -119,7 +125,7 @@
 	width: 18px;
 	height: 30px;
 	position: relative;
-	left: -2.8em;
+	left: -2.6em;
 	top: 0.2em;
 }
 
@@ -207,5 +213,8 @@
 	.typewriter,
 	.mybg {
 		display: none;
+	}
+	.buttonAdd {
+		margin: 5px 0 5px 0;
 	}
 }

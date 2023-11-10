@@ -14,7 +14,7 @@ const Backoffice = () => {
 	}, []);
 
 	return (
-		<div className="myBg-Keyper mysize">
+		<div className="myBg-Keyper">
 			<div className="d-flex align-items-center bgKeyper pb-4 py-2">
 				<h1>Backoffice</h1>
 				<div className="px-4">
@@ -30,7 +30,7 @@ const Backoffice = () => {
 			</div>
 
 			<Container>
-				<Row>
+				<Row className="home">
 					{completeDays &&
 						completeDays.days &&
 						completeDays.days?.map((day) => {

@@ -6,10 +6,15 @@ import "../style.css";
 import { FiDelete } from "react-icons/fi";
 import { current } from "@reduxjs/toolkit";
 
-const GeneratorWorkshift = () => {
+const GeneratorWorkshift = (prop) => {
 	const [show, setShow] = useState(false);
 	const [keepers, setKeepers] = useState([]);
-	const [selectedKeepers, setSelectedKeepers] = useState([]);
+	const [selectedKeepers, setSelectedKeepers] = useState([]); //mi ritorna l'array con tutti i i keeper oggetti
+
+	const arrayId = selectedKeepers.map((idK) => {
+		return [idK._id];
+	});
+	const arrayIdJoined = arrayId.join(";");
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -34,13 +39,33 @@ const GeneratorWorkshift = () => {
 
 	const popKeeper = (slct) => {
 		setSelectedKeepers((current) => {
-			debugger;
 			let index = selectedKeepers.indexOf(slct);
 			if (index > -1) {
 				current.splice(index, 1);
 			}
 			return [...current];
 		});
+	};
+
+	const generatorRandom = async () => {
+		try {
+			const response = await fetch(
+				`${process.env.REACT_APP_SERVER_BASE_URL}/workshift/${prop.idDay}/generator`,
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+					method: "PATCH",
+					body: JSON.stringify({
+						arrayIdJoined: arrayIdJoined,
+					}),
+				}
+			);
+			const data = await response.json();
+			window.location.reload();
+		} catch (error) {
+			console.log("Error:", error);
+		}
 	};
 
 	return (
@@ -59,7 +84,6 @@ const GeneratorWorkshift = () => {
 						<div className="d-flex flex-wrap">
 							{selectedKeepers &&
 								selectedKeepers?.map((slct) => {
-									debugger;
 									return (
 										<div key={slct._id} className="selectedKeepers mx-2 my-1">
 											<div>
@@ -103,8 +127,8 @@ const GeneratorWorkshift = () => {
 					<Button variant="secondary" onClick={handleClose}>
 						Close
 					</Button>
-					<Button variant="primary" onClick={handleClose}>
-						Save Changes
+					<Button variant="primary" onClick={generatorRandom}>
+						Crea Turno
 					</Button>
 				</Modal.Footer>
 			</Modal>

@@ -156,7 +156,6 @@ const Registration = () => {
 								type="checkbox"
 								name="referent"
 								onChange={(e) => {
-									debugger;
 									setFormData({
 										...formData,
 										referent: e.target.checked,

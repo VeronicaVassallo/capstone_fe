@@ -26,10 +26,15 @@ function ModalAddDay() {
 					}
 				);
 				const data = await response.json();
-				alert("Data inviata");
+
+				if (data.statusCode === 200) {
+					alert("Data già esistente");
+				}
+
 				window.location.reload();
 			} catch (error) {
 				console.log(error);
+				alert("Errore nella chiamata. Contattare l'assistenza");
 			}
 		}
 	};
