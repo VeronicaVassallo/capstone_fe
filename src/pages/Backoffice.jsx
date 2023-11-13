@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allDays, getDaysFromApi } from "../reducers/dayReducers";
 import CardDay from "../components/CardDay";
 import { Row, Container } from "react-bootstrap";
 import ModalAddDay from "../components/ModalAddDay";
 import { Link } from "react-router-dom";
+
 const Backoffice = () => {
 	let completeDays = useSelector(allDays);
 	const dispatch = useDispatch();
@@ -15,7 +16,16 @@ const Backoffice = () => {
 
 	return (
 		<div className="myBg-Keyper">
-			<div className="d-flex align-items-center bgKeyper pb-4 py-2">
+			<div className="d-flex align-items-center bgKeyper pb-4 py-2 flex-wrap">
+				<div className="d-flex align-items-center my-2 mx-4">
+					<div>
+						<h3 className="myk">K</h3>
+					</div>
+					<div className="myEyper">
+						<span>eyper</span>
+					</div>
+					<div className="keyTooth"></div>
+				</div>
 				<h1>Backoffice</h1>
 				<div className="px-4">
 					<button className="myButton mx-2">

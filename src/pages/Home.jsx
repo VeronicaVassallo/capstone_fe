@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import NavbarComponent from "../components/NavbarComponent";
 import useSession from "../useSession";
-import Button from "react-bootstrap/Button";
+import Spinner from "../components/Spinner";
 import Info from "../components/Info";
 import "../style.css";
 const Home = () => {
 	const session = useSession();
 	const idkeeper = session._id;
 	const [infoWorkshift, setInfoWorkshift] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 	//let data;
 	console.log("infoToken", session.nameKeeper);
 
@@ -23,6 +24,7 @@ const Home = () => {
 			return dateA - dateB;
 		});
 		setInfoWorkshift(data.workshifstSpecificKeeper);
+		setIsLoading(false);
 	};
 	useEffect(() => {
 		getInfoWorkshift();
@@ -39,6 +41,8 @@ const Home = () => {
 			<br />
 
 			<h2>I tuoi turni:</h2>
+			{isLoading && <Spinner />}
+
 			<Table striped bordered hover className="myBorder-home">
 				<thead>
 					<tr>

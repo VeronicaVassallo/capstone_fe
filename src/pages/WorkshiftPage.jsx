@@ -9,13 +9,12 @@ import GeneratorWorkshif from "../components/GeneratorWorkshift";
 import { Container, Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import Spinner from "../components/Spinner";
 
 const WorkshiftPage = () => {
 	const { idDay } = useParams(); //id turno
 	const [dataWorkshifts, setDataWorkshifts] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const getWorkshift = async () => {
 		const response = await fetch(
@@ -24,6 +23,7 @@ const WorkshiftPage = () => {
 
 		const data = await response.json();
 		setDataWorkshifts(data.workshift);
+		setIsLoading(false);
 	};
 
 	useEffect(() => {
@@ -81,6 +81,7 @@ const WorkshiftPage = () => {
 				</div>
 			</Row>
 			<Row>
+				{isLoading && <Spinner />}
 				<Table striped bordered hover className="p-0 m-0">
 					<thead>
 						<tr>
