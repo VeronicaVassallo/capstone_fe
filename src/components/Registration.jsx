@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Form, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import "../style.css";
 
 const Registration = () => {
 	const [show, setShow] = useState(false);
@@ -95,60 +96,69 @@ const Registration = () => {
 			</Button>
 
 			<Modal show={show} onHide={handleClose}>
-				<Modal.Header closeButton>
-					<Modal.Title>Registati</Modal.Title>
+				<Modal.Header closeButton className="bgKeyper">
+					<Modal.Title>Registrati</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<Form encType="multipart/form-data">
 						<Form.Group as={Col} md="4">
-							<label>Nome:</label>
-							<input
-								type="text"
-								name="nameKeeper"
-								onChange={(e) =>
-									setFormData({
-										...formData,
-										nameKeeper: e.target.value,
-									})
-								}
-								required
-							/>
-							<label>Cognome:</label>
-							<input
-								type="text"
-								name="surnameKeeper"
-								onChange={(e) =>
-									setFormData({
-										...formData,
-										surnameKeeper: e.target.value,
-									})
-								}
-								required
-							/>
-							<label>Email:</label>
-							<input
-								type="email"
-								name="email"
-								onChange={(e) =>
-									setFormData({
-										...formData,
-										email: e.target.value,
-									})
-								}
-								required
-							/>
-							<label>Password:</label>
-							<input
-								type="password"
-								name="password"
-								onChange={(e) =>
-									setFormData({
-										...formData,
-										password: e.target.value,
-									})
-								}
-								required
-							/>
+							<div className="d-flex flex-column">
+								<label>Nome: </label>
+								<input
+									type="text"
+									name="nameKeeper"
+									onChange={(e) =>
+										setFormData({
+											...formData,
+											nameKeeper: e.target.value,
+										})
+									}
+									required
+								/>
+							</div>
+							<div className="d-flex flex-column">
+								<label>Cognome:</label>
+								<input
+									type="text"
+									name="surnameKeeper"
+									onChange={(e) =>
+										setFormData({
+											...formData,
+											surnameKeeper: e.target.value,
+										})
+									}
+									required
+								/>
+							</div>
+							<div className="d-flex flex-column">
+								<label>Email:</label>
+								<input
+									type="email"
+									name="email"
+									onChange={(e) =>
+										setFormData({
+											...formData,
+											email: e.target.value,
+										})
+									}
+									required
+								/>
+							</div>
+							<div className="d-flex flex-column">
+								<label>Password:</label>
+								<input
+									type="password"
+									name="password"
+									onChange={(e) =>
+										setFormData({
+											...formData,
+											password: e.target.value,
+										})
+									}
+									required
+								/>
+							</div>
+
 							<br />
 							<br />
 							<p>Sei il referente?</p>
@@ -164,7 +174,7 @@ const Registration = () => {
 								required
 							/>
 							<label> Si</label>
-							<br />
+							<hr />
 							<p>Competenze:</p>
 							<input
 								type="checkbox"
@@ -204,8 +214,8 @@ const Registration = () => {
 								required
 							/>
 							<label> Primo soccorso</label>
-
-							<label>Avatar</label>
+							<hr />
+							<label>Scegli il tuo Avatar:</label>
 							<input
 								type="file"
 								name="avatar"
