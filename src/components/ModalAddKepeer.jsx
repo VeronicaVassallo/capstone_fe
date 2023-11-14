@@ -43,6 +43,7 @@ const ModalAddKepeer = (prop) => {
 			<button className="buttonAdd bg-primary" onClick={getKeepersWithSkills}>
 				Aggiungi
 			</button>
+
 			<button className="buttonAdd bg-danger" onClick={removeKeeper}>
 				Rimuovi
 			</button>

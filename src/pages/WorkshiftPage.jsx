@@ -40,7 +40,9 @@ const WorkshiftPage = () => {
 									<h3 className="myk">K</h3>
 								</div>
 								<div className="myEyper" style={{ left: "-0.7em" }}>
-									<span>eyper</span>
+									<span className="position-relative" style={{ top: "-0.2em" }}>
+										eyper
+									</span>
 								</div>
 								<div className="keyTooth" style={{ left: "-1.9em" }}></div>
 							</div>

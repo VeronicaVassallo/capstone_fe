@@ -4,6 +4,9 @@
 	margin: 0;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.myMarginTop {
+	margin-top: 0.5rem;
+}
 
 .selectorImg {
 	width: auto;
@@ -43,6 +46,8 @@
 	margin: auto 5px auto 5px;
 	border-radius: 10%;
 	color: #fff;
+	border: none;
+	padding: 8px;
 }
 .bgKeyperLight {
 	opacity: 0.9;

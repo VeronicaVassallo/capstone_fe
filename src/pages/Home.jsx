@@ -32,12 +32,10 @@ const Home = () => {
 	return (
 		<div className="myBg-Keyper bgKeyper mysize">
 			<NavbarComponent referent={session.referent} />
-			<hr />
 			<h2>Welcome {session.nameKeeper} !</h2>
 			<div className="myAvatar mx-4 myAvatarPointer">
 				<img className="myImgAvatar" src={session.avatar} alt="img_avatar" />
 			</div>
-			<br />
 			<br />
 
 			<h2>I tuoi turni:</h2>

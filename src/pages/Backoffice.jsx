@@ -15,8 +15,8 @@ const Backoffice = () => {
 	}, []);
 
 	return (
-		<div className="myBg-Keyper">
-			<div className="d-flex align-items-center bgKeyper pb-4 py-2 flex-wrap">
+		<div className="myBg-Keyper bgKeyper">
+			<div className="d-flex align-items-center bgKeyper pb-4 py-2 flex-wrap myMarginTop">
 				<div className="d-flex align-items-center my-2 mx-4">
 					<div>
 						<h3 className="myk">K</h3>
