@@ -4,11 +4,13 @@ import { Container, Row, Form, Col } from "react-bootstrap";
 import "../style.css";
 import { useNavigate } from "react-router-dom";
 import Registration from "../components/Registration";
+import Spinner from "../components/Spinner";
 
 const LoginPage = () => {
 	const navigate = useNavigate();
 	const [loginData, setLoginData] = useState({});
 	const [login, setLogin] = useState(null);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const handleInpuntChange = (e) => {
 		const { name, value } = e.target;
@@ -32,9 +34,11 @@ const LoginPage = () => {
 					body: JSON.stringify(loginData),
 				}
 			);
+			setIsLoading(true);
 			if (response.status === 200) {
 				const data = await response.json();
 				setLogin(data);
+
 				if (data.token) {
 					localStorage.setItem("loggedInKeeper", JSON.stringify(data.token));
 					return navigate("/home");
@@ -42,6 +46,7 @@ const LoginPage = () => {
 			} else {
 				alert("La mail o la password non sono valide!");
 			}
+			setIsLoading(false);
 		} catch (error) {
 			console.log("Error:", error);
 		}
@@ -49,6 +54,7 @@ const LoginPage = () => {
 
 	return (
 		<div className="myImg">
+			{isLoading && <Spinner />}
 			<Container className="d-flex justify-content-center">
 				<Row>
 					<Col>
@@ -63,6 +69,7 @@ const LoginPage = () => {
 									</div>
 									<div className="keyTooth"></div>
 								</div>
+
 								<Form onSubmit={onSubmitData}>
 									<Row>
 										<Form.Group as={Col} md="6">
@@ -92,6 +99,7 @@ const LoginPage = () => {
 							</div>
 						</div>
 					</Col>
+
 					<Col>
 						<div className="typewriter">
 							<h1>the key for every keepers</h1>

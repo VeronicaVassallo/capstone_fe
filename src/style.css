@@ -81,10 +81,16 @@
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
+	border: 5px rgb(128, 89, 155) solid;
 	overflow: hidden;
+	background-size: cover;
+	box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+	transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
 }
 .myImgAvatar {
 	width: 100%;
+	height: 100%;
 }
 .linkhover:hover {
 	background-color: rgb(50, 91, 50);
@@ -226,7 +232,7 @@
 /*spinner*/
 .lds-roller {
 	display: inline-block;
-	position: relative;
+	position: absolute;
 	width: 80px;
 	height: 80px;
 	z-index: 3;
@@ -243,7 +249,7 @@
 	width: 7px;
 	height: 7px;
 	border-radius: 50%;
-	background: rgb(128, 89, 155);
+	background: rgb(174, 0, 255);
 	margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
@@ -308,5 +314,22 @@
 	}
 	100% {
 		transform: rotate(360deg);
+	}
+}
+
+/*animation avatar*/
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+		transform: translatey(-10px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+		transform: translatey(0px);
 	}
 }
