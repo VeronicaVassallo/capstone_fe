@@ -28,6 +28,12 @@
 .bgKeyper {
 	background-color: rgb(143, 178, 143);
 }
+.myCursor {
+	cursor: pointer;
+}
+.myCursor:hover {
+	border: 5px rgba(99, 88, 238, 1) solid;
+}
 .myBorder {
 	border: 5px solid rgb(4, 57, 16);
 }

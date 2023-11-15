@@ -37,7 +37,11 @@ const Home = () => {
 	//welcome d-flex flex-column
 	return (
 		<div className="myBg-Keyper bgKeyper mysize">
-			<NavbarComponent referent={session.referent} avatar={session.avatar} />
+			<NavbarComponent
+				referent={session.referent}
+				avatar={session.avatar}
+				idkeeper={session._id}
+			/>
 			<div className="bubble bubble-bottom-left m-4">
 				<h2 className="pt-1">Welcome</h2>
 				<h2 className="text-success">{session.nameKeeper} !</h2>

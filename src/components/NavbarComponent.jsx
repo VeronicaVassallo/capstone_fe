@@ -5,9 +5,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import ButtonBackoffice from "./ButtonBackoffice";
 import { Link } from "react-router-dom";
+import ModalAddFileAvatar from "./ModalAddFileAvatar";
+import useSession from "../useSession";
 import "../style.css";
 
 const NavbarComponent = (prop) => {
+	const session = useSession();
+	const keeperAvatar = session.avatar;
 	return (
 		<Container fluid>
 			<Row>
@@ -23,9 +27,7 @@ const NavbarComponent = (prop) => {
 							<div className="keyTooth"></div>
 						</div>
 
-						<div className="myAvatar mx-4 myAvatarPointer">
-							<img className="myImgAvatar" src={prop.avatar} alt="img_avatar" />
-						</div>
+						<ModalAddFileAvatar avatar={keeperAvatar} />
 
 						<Navbar.Toggle aria-controls="navbarScroll" />
 						<Navbar.Collapse id="navbarScroll">

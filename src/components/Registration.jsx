@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Form, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Spinner from "./Spinner";
 import "../style.css";
 
 const Registration = () => {
 	const [show, setShow] = useState(false);
 	const [formData, setFormData] = useState({});
 	const [fileAvatar, setFileAvatar] = useState(null);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => {
@@ -19,14 +21,6 @@ const Registration = () => {
 		});
 
 		setShow(true);
-	};
-
-	const convert = (stringValue) => {
-		if (stringValue === "true") {
-			return true;
-		} else {
-			return false;
-		}
 	};
 
 	const onChangeSetFile = (e) => {
@@ -56,6 +50,7 @@ const Registration = () => {
 
 	const postFormData = async () => {
 		if (fileAvatar) {
+			setIsLoading(true);
 			try {
 				let uploadAvatar = null;
 				if (fileAvatar) {
@@ -82,7 +77,8 @@ const Registration = () => {
 						body: JSON.stringify(finalBody),
 					}
 				);
-				alert("Registrazione inviata con successo!");
+				setIsLoading(false);
+				alert("Registrazione completata con successo!");
 				window.location.reload();
 			} catch (error) {
 				console.error(`Registration error:`, error);
@@ -92,6 +88,7 @@ const Registration = () => {
 			}
 		} else {
 			console.error("Per favore seleziona almeno un file");
+			alert("Per favore seleziona almeno un file");
 		}
 	};
 
@@ -106,6 +103,7 @@ const Registration = () => {
 					<Modal.Title>Registrati</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
+					{isLoading && <Spinner />}
 					<Form encType="multipart/form-data">
 						<Form.Group as={Col} md="4">
 							<div className="d-flex flex-column">
