@@ -16,19 +16,25 @@ const WorkshiftPage = () => {
 	const [dataWorkshifts, setDataWorkshifts] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
-	const getWorkshift = async () => {
-		const response = await fetch(
-			`${process.env.REACT_APP_SERVER_BASE_URL}/workshift/${idDay}`
-		);
+	try {
+		const getWorkshift = async () => {
+			const response = await fetch(
+				`${process.env.REACT_APP_SERVER_BASE_URL}/workshift/${idDay}`
+			);
 
-		const data = await response.json();
-		setDataWorkshifts(data.workshift);
-		setIsLoading(false);
-	};
+			const data = await response.json();
+			setDataWorkshifts(data.workshift);
+			setIsLoading(false);
+		};
 
-	useEffect(() => {
-		getWorkshift();
-	}, [idDay]);
+		useEffect(() => {
+			getWorkshift();
+		}, [idDay]);
+	} catch (error) {
+		console.error(`WorkshiftPage error:`, error);
+		alert("Errore durante l'operazione, riprovare o chiamare  l'assistenza");
+	}
+
 	return (
 		<Container fluid className="myBg-Keyper bgKeyper m-0">
 			<Row>

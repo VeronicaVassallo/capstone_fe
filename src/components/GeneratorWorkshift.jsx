@@ -64,7 +64,8 @@ const GeneratorWorkshift = (prop) => {
 			const data = await response.json();
 			window.location.reload();
 		} catch (error) {
-			console.log("Error:", error);
+			console.error(`GeneratorWorkshift error:`, error);
+			alert("Errore durante l'operazione, riprovare o chiamare  l'assistenza");
 		}
 	};
 
@@ -75,7 +76,7 @@ const GeneratorWorkshift = (prop) => {
 			</button>
 
 			<Modal show={show} onHide={handleClose}>
-				<Modal.Header closeButton>
+				<Modal.Header closeButton className="bgKeyper">
 					<Modal.Title>Generatore automatico</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>

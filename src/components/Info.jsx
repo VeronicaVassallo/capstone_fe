@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import { FaFlagUsa, FaFireExtinguisher, FaFirstAid } from "react-icons/fa";
-
+import "../style.css";
 const Info = (prop) => {
 	const [show, setShow] = useState(false);
 	const [infoRoom, setInfoRoom] = useState({});
@@ -12,19 +12,22 @@ const Info = (prop) => {
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
-	const getRoom = async () => {
-		const response = await fetch(
-			`${process.env.REACT_APP_SERVER_BASE_URL}/room/${prop.idRoom}`
-		);
-		const data = await response.json();
-		setInfoRoom(data.roomById);
-	};
+	try {
+		const getRoom = async () => {
+			const response = await fetch(
+				`${process.env.REACT_APP_SERVER_BASE_URL}/room/${prop.idRoom}`
+			);
+			const data = await response.json();
+			setInfoRoom(data.roomById);
+		};
 
-	useEffect(() => {
-		getRoom();
-	}, [prop.idRoom]);
-
-	console.log("ciao", infoRoom);
+		useEffect(() => {
+			getRoom();
+		}, [prop.idRoom]);
+	} catch (error) {
+		console.error(`Info error:`, error);
+		alert("Errore durante l'operazione, riprovare o chiamare  l'assistenza");
+	}
 
 	return (
 		<>
@@ -33,20 +36,21 @@ const Info = (prop) => {
 			</Button>
 
 			<Modal show={show} onHide={handleClose}>
-				<Modal.Header closeButton>
+				<Modal.Header className="bgKeyper" closeButton>
 					<Modal.Title>Dettagli Postazione</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<Card>
-						<Card.Img variant="top" src={infoRoom.cover} />
+						<div className="myInfoImg">
+							<img src={infoRoom.cover} />
+						</div>
+
 						<Card.Body>
 							<h3>{infoRoom.nameRoom}</h3>
-							<Card.Title></Card.Title>
-							<Card.Text></Card.Text>
 						</Card.Body>
 						<ListGroup className="list-group-flush">
 							<ListGroup.Item>
-								<b>Generali:</b> {infoRoom.info}
+								<b>Info :</b> {infoRoom.info}
 							</ListGroup.Item>
 							<ListGroup.Item>
 								<b>Requisiti: </b>

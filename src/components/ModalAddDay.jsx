@@ -33,7 +33,7 @@ function ModalAddDay() {
 
 				window.location.reload();
 			} catch (error) {
-				console.log(error);
+				console.error(`ModalAddDay error:`, error);
 				alert("Errore nella chiamata. Contattare l'assistenza");
 			}
 		}

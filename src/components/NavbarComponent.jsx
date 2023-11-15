@@ -30,7 +30,7 @@ const NavbarComponent = (prop) => {
 								style={{ maxHeight: "100px" }}
 								navbarScroll
 							>
-								<button className="myButton mt-2">
+								<button className="myButton my-2">
 									<span className="myButton-content">
 										<Link className="text-decoration-none text-light" to={"/"}>
 											Torna al login

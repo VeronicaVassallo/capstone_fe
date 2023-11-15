@@ -48,6 +48,9 @@ const Registration = () => {
 			return await response.json();
 		} catch (error) {
 			console.log(error, "Error during  uploadFileAvatar");
+			alert(
+				"Errore durante l'upload del file, riprovare o chiamare  l'assistenza"
+			);
 		}
 	};
 
@@ -82,7 +85,10 @@ const Registration = () => {
 				alert("Registrazione inviata con successo!");
 				window.location.reload();
 			} catch (error) {
-				console.log(error);
+				console.error(`Registration error:`, error);
+				alert(
+					"Errore durante l'operazione, riprovare o chiamare  l'assistenza"
+				);
 			}
 		} else {
 			console.error("Per favore seleziona almeno un file");

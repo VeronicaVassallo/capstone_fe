@@ -13,26 +13,35 @@ const Home = () => {
 	//let data;
 	console.log("infoToken", session.nameKeeper);
 
-	const getInfoWorkshift = async () => {
-		const response = await fetch(
-			`${process.env.REACT_APP_SERVER_BASE_URL}/workshift/specific/${idkeeper}`
-		);
-		let data = await response.json();
-		data.workshifstSpecificKeeper.sort((a, b) => {
-			const dateA = new Date(a.day.dataName);
-			const dateB = new Date(b.day.dataName);
-			return dateA - dateB;
-		});
-		setInfoWorkshift(data.workshifstSpecificKeeper);
-		setIsLoading(false);
-	};
-	useEffect(() => {
-		getInfoWorkshift();
-	}, [idkeeper]);
+	try {
+		const getInfoWorkshift = async () => {
+			const response = await fetch(
+				`${process.env.REACT_APP_SERVER_BASE_URL}/workshift/specific/${idkeeper}`
+			);
+			let data = await response.json();
+			data.workshifstSpecificKeeper.sort((a, b) => {
+				const dateA = new Date(a.day.dataName);
+				const dateB = new Date(b.day.dataName);
+				return dateA - dateB;
+			});
+			setInfoWorkshift(data.workshifstSpecificKeeper);
+			setIsLoading(false);
+		};
+		useEffect(() => {
+			getInfoWorkshift();
+		}, [idkeeper]);
+	} catch (error) {
+		console.error(`Home error:`, error);
+		alert("Errore durante l'operazione, riprovare o chiamare  l'assistenza");
+	}
+
 	return (
 		<div className="myBg-Keyper bgKeyper mysize">
 			<NavbarComponent referent={session.referent} />
-			<h2>Welcome {session.nameKeeper} !</h2>
+			<div className="welcome">
+				<h2>Welcome {session.nameKeeper} !</h2>
+			</div>
+
 			<div className="myAvatar mx-4 myAvatarPointer">
 				<img className="myImgAvatar" src={session.avatar} alt="img_avatar" />
 			</div>

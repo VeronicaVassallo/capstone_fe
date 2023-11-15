@@ -5,17 +5,21 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import "../style.css";
 function CardDay(prop) {
 	const deleteDay = async () => {
-		const response = await fetch(
-			`${process.env.REACT_APP_SERVER_BASE_URL}/day/delete/${prop.idDay}`,
-			{
-				headers: {
-					"Content-Type": "application/json",
-				},
-				method: "DELETE",
-			}
-		);
-		alert("Turno eliminato con successo");
-		window.location.reload();
+		try {
+			const response = await fetch(
+				`${process.env.REACT_APP_SERVER_BASE_URL}/day/delete/${prop.idDay}`,
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+					method: "DELETE",
+				}
+			);
+			window.location.reload();
+		} catch (error) {
+			console.error(`deleteDay error:`, error);
+			alert("Errore durante l'operazione, riprovare o chiamare  l'assistenza");
+		}
 	};
 	return (
 		<Card

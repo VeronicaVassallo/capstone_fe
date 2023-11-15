@@ -48,7 +48,8 @@ const LoginPage = () => {
 			}
 			setIsLoading(false);
 		} catch (error) {
-			console.log("Error:", error);
+			console.error(`LoginPage error:`, error);
+			alert("Errore durante l'operazione, riprovare o chiamare  l'assistenza");
 		}
 	};
 

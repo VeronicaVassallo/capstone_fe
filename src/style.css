@@ -34,8 +34,31 @@
 .home {
 	background-color: rgb(209, 222, 209);
 }
+.myInfoImg {
+	width: 100%;
+	overflow: hidden;
+	background-size: cover;
+}
+.myInfoImg img {
+	width: 100%;
+}
 .mysize {
 	height: 50rem;
+}
+.welcome {
+	background-color: #fff;
+	width: 13rem;
+	height: 5rem;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+	left: 10em;
+	top: 3.5em;
+	border-radius: 10px;
+	box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+	transform: rotate(0deg);
+	animation: WelcomeRotate 6s ease-in-out infinite;
 }
 
 .myTitle h1 {
@@ -331,5 +354,21 @@
 	100% {
 		box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
 		transform: translatey(0px);
+	}
+}
+
+/*animation welcome*/
+@keyframes WelcomeRotate {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+		transform: rotate(-5deg);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+		transform: rotate(9deg);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+		transform: rotate(-5deg);
 	}
 }
