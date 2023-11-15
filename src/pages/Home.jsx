@@ -34,19 +34,17 @@ const Home = () => {
 		console.error(`Home error:`, error);
 		alert("Errore durante l'operazione, riprovare o chiamare  l'assistenza");
 	}
-
+	//welcome d-flex flex-column
 	return (
 		<div className="myBg-Keyper bgKeyper mysize">
-			<NavbarComponent referent={session.referent} />
-			<div className="welcome">
-				<h2>Welcome {session.nameKeeper} !</h2>
+			<NavbarComponent referent={session.referent} avatar={session.avatar} />
+			<div className="bubble bubble-bottom-left m-4">
+				<h2 className="pt-1">Welcome</h2>
+				<h2 className="text-success">{session.nameKeeper} !</h2>
 			</div>
 
-			<div className="myAvatar mx-4 myAvatarPointer">
-				<img className="myImgAvatar" src={session.avatar} alt="img_avatar" />
-			</div>
 			<br />
-
+			<br />
 			<h2>I tuoi turni:</h2>
 			{isLoading && <Spinner />}
 

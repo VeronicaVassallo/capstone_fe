@@ -13,7 +13,7 @@ const NavbarComponent = (prop) => {
 			<Row>
 				<Navbar expand="lg">
 					<Container fluid className="bgKeyper">
-						<div className="d-flex align-items-center my-2 mx-4">
+						<div className="d-flex align-items-center my-2 mx-2">
 							<div>
 								<h3 className="myk">K</h3>
 							</div>
@@ -21,6 +21,10 @@ const NavbarComponent = (prop) => {
 								<span>eyper</span>
 							</div>
 							<div className="keyTooth"></div>
+						</div>
+
+						<div className="myAvatar mx-4 myAvatarPointer">
+							<img className="myImgAvatar" src={prop.avatar} alt="img_avatar" />
 						</div>
 
 						<Navbar.Toggle aria-controls="navbarScroll" />

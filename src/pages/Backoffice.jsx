@@ -17,15 +17,18 @@ const Backoffice = () => {
 	return (
 		<div className="myBg-Keyper bgKeyper">
 			<div className="d-flex align-items-center bgKeyper pb-4 py-2 flex-wrap myMarginTop">
-				<div className="d-flex align-items-center my-2 mx-4">
-					<div>
-						<h3 className="myk">K</h3>
+				<Link className="text-decoration-none text-dark" to={"/home"}>
+					<div className="d-flex align-items-center my-2 mx-4">
+						<div>
+							<h3 className="myk">K</h3>
+						</div>
+						<div className="myEyper">
+							<span>eyper</span>
+						</div>
+						<div className="keyTooth"></div>
 					</div>
-					<div className="myEyper">
-						<span>eyper</span>
-					</div>
-					<div className="keyTooth"></div>
-				</div>
+				</Link>
+
 				<h1>Backoffice</h1>
 				<div className="px-4">
 					<button className="myButton mx-2">

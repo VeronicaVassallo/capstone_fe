@@ -24,6 +24,7 @@ const LoginPage = () => {
 		e.preventDefault();
 
 		try {
+			setIsLoading(true);
 			const response = await fetch(
 				`${process.env.REACT_APP_SERVER_BASE_URL}/login`,
 				{
@@ -34,7 +35,7 @@ const LoginPage = () => {
 					body: JSON.stringify(loginData),
 				}
 			);
-			setIsLoading(true);
+
 			if (response.status === 200) {
 				const data = await response.json();
 				setLogin(data);
@@ -46,10 +47,11 @@ const LoginPage = () => {
 			} else {
 				alert("La mail o la password non sono valide!");
 			}
-			setIsLoading(false);
 		} catch (error) {
 			console.error(`LoginPage error:`, error);
 			alert("Errore durante l'operazione, riprovare o chiamare  l'assistenza");
+		} finally {
+			setIsLoading(false);
 		}
 	};
 

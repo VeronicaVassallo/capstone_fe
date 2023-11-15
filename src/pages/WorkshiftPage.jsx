@@ -41,17 +41,22 @@ const WorkshiftPage = () => {
 				<Navbar expand="lg" className="bg-body-tertiary">
 					<Container fluid>
 						<Navbar.Brand>
-							<div className="d-flex align-items-center my-2 ">
-								<div>
-									<h3 className="myk">K</h3>
+							<Link className="text-decoration-none text-dark" to={"/home"}>
+								<div className="d-flex align-items-center my-2 ">
+									<div>
+										<h3 className="myk">K</h3>
+									</div>
+									<div className="myEyper" style={{ left: "-0.7em" }}>
+										<span
+											className="position-relative"
+											style={{ top: "-0.2em" }}
+										>
+											eyper
+										</span>
+									</div>
+									<div className="keyTooth" style={{ left: "-1.9em" }}></div>
 								</div>
-								<div className="myEyper" style={{ left: "-0.7em" }}>
-									<span className="position-relative" style={{ top: "-0.2em" }}>
-										eyper
-									</span>
-								</div>
-								<div className="keyTooth" style={{ left: "-1.9em" }}></div>
-							</div>
+							</Link>
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="navbarScroll" />
 						<Navbar.Collapse id="navbarScroll">

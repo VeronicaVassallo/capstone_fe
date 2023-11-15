@@ -46,20 +46,54 @@
 	height: 50rem;
 }
 .welcome {
-	background-color: #fff;
-	width: 13rem;
-	height: 5rem;
+	background-color: rgb(250, 250, 250);
+	width: 15rem;
+	height: 6rem;
 	display: flex;
 	justify-content: center;
 	text-align: center;
 	position: relative;
-	left: 10em;
-	top: 3.5em;
+	left: 4rem;
+	top: 0.8em;
 	border-radius: 10px;
 	box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
 	transform: rotate(0deg);
 	animation: WelcomeRotate 6s ease-in-out infinite;
 }
+/*welcome*/
+body {
+	background: #368dda;
+}
+
+.bubble {
+	position: relative;
+	font-family: sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	width: 300px;
+	background: #fff;
+	border-radius: 40px;
+	padding: 24px;
+	text-align: center;
+	color: #000;
+	box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+	transform: rotate(0deg);
+	animation: WelcomeRotate 6s ease-in-out infinite;
+}
+
+.bubble-bottom-left:before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	border-left: 24px solid #fff;
+	border-right: 12px solid transparent;
+	border-top: 12px solid #fff;
+	border-bottom: 20px solid transparent;
+	left: 32px;
+	bottom: -24px;
+}
+/**/
 
 .myTitle h1 {
 	text-wrap: wrap;
@@ -101,13 +135,12 @@
 	width: 100%;
 }
 .myAvatar {
-	width: 80px;
-	height: 80px;
+	width: 60px;
+	height: 60px;
 	border-radius: 50%;
 	border: 5px rgb(128, 89, 155) solid;
 	overflow: hidden;
 	background-size: cover;
-	box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
 	transform: translatey(0px);
 	animation: float 6s ease-in-out infinite;
 }
@@ -337,23 +370,6 @@
 	}
 	100% {
 		transform: rotate(360deg);
-	}
-}
-
-/*animation avatar*/
-
-@keyframes float {
-	0% {
-		box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-		transform: translatey(0px);
-	}
-	50% {
-		box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
-		transform: translatey(-10px);
-	}
-	100% {
-		box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-		transform: translatey(0px);
 	}
 }
 
