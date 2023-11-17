@@ -78,6 +78,11 @@ const Registration = () => {
 					}
 				);
 				setIsLoading(false);
+				const data = await response.json();
+				if (data.statusCode === 200) {
+					alert("Email già esistente, scelierne un'altra.");
+				}
+
 				alert("Registrazione completata con successo!");
 				window.location.reload();
 			} catch (error) {

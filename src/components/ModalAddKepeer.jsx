@@ -18,7 +18,7 @@ const ModalAddKepeer = (prop) => {
 			`${process.env.REACT_APP_SERVER_BASE_URL}/keepers/${prop.idRoom}/${prop.idDay}`
 		);
 		data = await response.json();
-		setKeepersOk(data.keepersFiltered);
+		setKeepersOk(data.keepers);
 		setKeepersNo(data.keepersExcluded);
 		handleShow();
 	};
@@ -70,7 +70,7 @@ const ModalAddKepeer = (prop) => {
 					</div>
 					<hr />
 					<p>Custodi senza requisiti:</p>
-					<div className="d-flex">
+					<div className="d-flex flex-wrap">
 						{keepersNo &&
 							keepersNo?.map((y) => {
 								return (

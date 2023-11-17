@@ -90,7 +90,7 @@ const ModalAddFileAvatar = (prop) => {
 			</div>
 
 			<Modal show={show} onHide={handleClose}>
-				<Modal.Header closeButton>
+				<Modal.Header closeButton className="bgKeyper">
 					<Modal.Title>Modifica Avatar</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
@@ -107,17 +107,9 @@ const ModalAddFileAvatar = (prop) => {
 								/>
 							</Form.Group>
 						</Row>
-						<Button type="submit">Submit form</Button>
+						<Button type="submit">Salva</Button>
 					</Form>
 				</Modal.Body>
-				<Modal.Footer>
-					<Button variant="secondary" onClick={handleClose}>
-						Close
-					</Button>
-					<Button variant="primary" onClick={handleClose}>
-						Save Changes
-					</Button>
-				</Modal.Footer>
 			</Modal>
 		</>
 	);

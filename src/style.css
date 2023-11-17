@@ -124,7 +124,7 @@ body {
 	font-weight: bolder;
 }
 .myImg {
-	background-image: url("https://www.yesmilano.it/sites/default/files/luogo/copertina/64/60/Castello_sforzesco_copertina_Depositphotos_157455922_xl-2015.jpg");
+	background-image: url("../src/imgRoom/1.jpg");
 	height: 100vh;
 	width: 100vw;
 	background-position: center;
